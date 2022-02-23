@@ -1,0 +1,33 @@
+{
+  "name": "sproto-ts",
+  "version": "0.0.1",
+  "description": "couldwu sproto(https://github.com/cloudwu/sproto) implement with typescript ",
+  "main": "index.js",
+  "dependencies": {
+    
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.11",
+    "@rollup/plugin-typescript": "^8.3.0",
+    "@types/mocha": "^9.0.0",
+    "gulp": "^4.0.2",
+    "gulp-clean": "^0.4.0",
+    "gulp-cli": "^2.3.0",
+    "mocha": "^9.1.3",
+    "rollup": "^2.60.2",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-uglify": "^6.0.4",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.2"
+  },
+  "scripts": {
+    "build": "./node_modules/.bin/gulp --tasks default",
+    "build_test": "tsc -p tsconfig_test.json",
+    "run_test": "./node_modules/.bin/mocha dist_test/test/**/*.js",
+    "test": "npm run build_test && npm run run_test"
+  },
+  "author": "",
+  "license": "ISC"
+}
