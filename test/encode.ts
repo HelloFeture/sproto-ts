@@ -49,12 +49,10 @@ interface IData {
 
 var sproto: Sproto;
 
-function parse():void {
-    sproto = new Sproto();
-    let parser = new TextParser();
-    let err = parser.parse(sproto, sp);
-    if (err instanceof Error) {
-        assert.fail(err.message);
+function parse(): void {
+    let err = TextParser.parse(sp);
+    if (!(err instanceof Error)) {
+        sproto = err;
     }
 }
 

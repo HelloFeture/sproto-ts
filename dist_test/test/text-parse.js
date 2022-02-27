@@ -1,39 +1,33 @@
-import * as mocha from "mocha";
-import * as assert from "assert";
-
-import { TextParser } from "../src/text-parser";
-
-function parse1(): void {
-    let sp =
-`
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const mocha = require("mocha");
+const assert = require("assert");
+const text_parser_1 = require("../src/text-parser");
+function parse1() {
+    let sp = `
 .Persion1{
     a 0:integer
 }
 `;
-    let err = TextParser.parse(sp);
+    let err = text_parser_1.TextParser.parse(sp);
     if (err instanceof Error) {
         assert.fail(err.message);
     }
 }
-
-function parse2(): void {
-    let sp =
-`
+function parse2() {
+    let sp = `
 .Persion2 # 12222
 {
     a 0:integer
 }
 `;
-
-    let err = TextParser.parse(sp);
+    let err = text_parser_1.TextParser.parse(sp);
     if (err instanceof Error) {
         assert.fail(err.message);
     }
 }
-
-function parse3(): void {
-    let sp =
-`
+function parse3() {
+    let sp = `
 .Persion3{
     a# c1
     0# c2
@@ -41,16 +35,13 @@ function parse3(): void {
     integer
 }
 `;
-
-    let err = TextParser.parse(sp);
+    let err = text_parser_1.TextParser.parse(sp);
     if (err instanceof Error) {
         assert.fail(err.message);
     }
 }
-
-function parse4(): void {
-    let sp =
-`
+function parse4() {
+    let sp = `
 .Persion4{
     a# c1
     0# c2
@@ -62,16 +53,13 @@ function parse4(): void {
     )
 }
 `;
-
-    let err = TextParser.parse(sp);
+    let err = text_parser_1.TextParser.parse(sp);
     if (err instanceof Error) {
         assert.fail(err.message);
     }
 }
-
-function parseProtocol1():void {
-    let sp =
-`
+function parseProtocol1() {
+    let sp = `
 .User {
     nickName 0 : string
 }
@@ -87,16 +75,13 @@ auth 1 {
     }
 }   
 `;
-
-    let err = TextParser.parse(sp);
+    let err = text_parser_1.TextParser.parse(sp);
     if (err instanceof Error) {
         assert.fail(err.message);
     }
 }
-
-function parseInvalid1(): void {
-    let sp =
-`
+function parseInvalid1() {
+    let sp = `
 Persion4{
     a# c1
     0# c2
@@ -108,16 +93,13 @@ Persion4{
     )
 }
 `;
-
-    let err = TextParser.parse(sp);
+    let err = text_parser_1.TextParser.parse(sp);
     if (!(err instanceof Error)) {
         assert.fail("invalid protocol");
     }
 }
-
-function parseInvalid2(): void {
-    let sp =
-`
+function parseInvalid2() {
+    let sp = `
 Persion 4 {
     a# c1
     0# c2
@@ -129,14 +111,12 @@ Persion 4 {
     )
 }
 `;
-
-    let err = TextParser.parse(sp);
+    let err = text_parser_1.TextParser.parse(sp);
     if (!(err instanceof Error)) {
         assert.fail("invalid protocol");
     }
 }
-
-mocha.describe("parse", function(){
+mocha.describe("parse", function () {
     mocha.it("text_parse_1", parse1);
     mocha.it("text_parse_2", parse2);
     mocha.it("text_parse_3", parse3);

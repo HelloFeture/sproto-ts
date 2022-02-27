@@ -29,11 +29,9 @@ const sp = `
 let sproto: Sproto;
 
 function parse(): void {
-    sproto = new Sproto();
-    let parser = new TextParser();
-    let err = parser.parse(sproto, sp);
-    if (err instanceof Error) {
-        assert.fail(err.message);
+    let err = TextParser.parse(sp);
+    if (!(err instanceof Error)) {
+        sproto = err;
     }
 }
 

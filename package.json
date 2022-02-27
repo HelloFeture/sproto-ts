@@ -3,9 +3,7 @@
   "version": "0.0.1",
   "description": "couldwu sproto(https://github.com/cloudwu/sproto) implement with typescript ",
   "main": "index.js",
-  "dependencies": {
-    
-  },
+  "dependencies": {},
   "devDependencies": {
     "@types/node": "^16.11.11",
     "@rollup/plugin-typescript": "^8.3.0",
